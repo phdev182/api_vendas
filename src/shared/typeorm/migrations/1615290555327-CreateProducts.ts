@@ -11,30 +11,30 @@ export class CreateProducts1615290555327 implements MigrationInterface {
           type: 'uuid',
           isPrimary: true,
           generationStrategy: 'uuid',
-          default:'uuid_generate_v4()'
+          default:'uuid_generate_v4()',
         },
         {
           name: 'name',
-          type:'varchar'
+          type:'varchar',
         },
         {
           name: 'price',
           type: 'decimal',
           precision: 10,
-          scale: 2
+          scale: 2,
 
         },
         {
           name: 'quantity',
-          type: 'int'
+          type: 'int',
         },
         {
           name: 'created_at',
           type: 'timestamp',
           default: 'now()',
         },
-                {
-          name: 'update_at',
+        {
+          name: 'updated_at',
           type: 'timestamp',
           default: 'now()',
         }
@@ -43,7 +43,7 @@ export class CreateProducts1615290555327 implements MigrationInterface {
     }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-      await queryRunner.dropTable('products')
+    await queryRunner.dropTable('products');
     }
 
 }
