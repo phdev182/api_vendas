@@ -1,17 +1,22 @@
-import  AppError from '@shared/errors/AppError';
+import AppError from '@shared/errors/AppError';
 import { getCustomRepository } from 'typeorm';
-import Product from '../tyeorm/entities/Product';
-import  ProductRepository from './../tyeorm/repositories/ProductsRepository';
+import Product from '../typeorm/entities/Product';
+import ProductRepository from '../typeorm/repositories/ProductsRepository';
 
 interface IRequest {
   id: string;
   name: string;
   price: number;
-  quantity: number
+  quantity: number;
 }
 
 class UpdateProductService {
-  public async execute({ id, name, price, quantity }: IRequest): Promise<Product> {
+  public async execute({
+    id,
+    name,
+    price,
+    quantity,
+  }: IRequest): Promise<Product> {
     const productsRepository = getCustomRepository(ProductRepository);
 
     const product = await productsRepository.findOne(id);

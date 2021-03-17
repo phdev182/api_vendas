@@ -1,6 +1,6 @@
-import  AppError from '@shared/errors/AppError';
+import AppError from '@shared/errors/AppError';
 import { getCustomRepository } from 'typeorm';
-import ProductRepository from './../tyeorm/repositories/ProductsRepository';
+import ProductRepository from '../typeorm/repositories/ProductsRepository';
 
 interface IRequest {
   id: string;
@@ -16,7 +16,6 @@ class DeleteProductService {
       throw new AppError('Product not found.');
     }
     await productsRepository.remove(product);
-
-  };
+  }
 }
 export default DeleteProductService;
